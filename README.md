@@ -16,7 +16,7 @@ python main.py -f <filename> -d <t-day> -t <t-time>
 ```
    - _Filename_, string, needs to be the full name with ending, and if not saved in the same directory, it also needs to include the full path.
    - _t-day_, int, the day of T
-   - _t-time_, string, the timestamp of T, in the format "%H:%D"
+   - _t-time_, string, the timestamp of T, in the format "%H:%M"
    
 The output is a CSV file in the base folder called "predictions.csv", containing the geohashes as columns and the 5 prediction timesteps as rows.
 

@@ -42,12 +42,13 @@ class Predictor:
             # Reshape the values to fit the model input shape
             input_x = df_temp.values
             input_x = input_x.reshape((1, input_x.shape[0], input_x.shape[1]))
-            predictions.append([{'gehoash6': ghash,
-                                 't+1': p[0][0].item(),
-                                 't+2': p[1][0].item(),
-                                 't+3': p[2][0].item(),
-                                 't+4': p[3][0].item(),
-                                 't+5': p[4][0].item()} for p in self.model.predict(input_x, verbose=0)])
+            pred = self.model.predict(input_x, verbose=0)[0]
+            predictions.append({'gehoash6': ghash,
+                                 't+1': pred[0][0].item(),
+                                 't+2': pred[1][0].item(),
+                                 't+3': pred[2][0].item(),
+                                 't+4': pred[3][0].item(),
+                                 't+5': pred[4][0].item()})
         self.predictions = predictions
 
     def save_predictions(self, filename='predictions.csv'):
